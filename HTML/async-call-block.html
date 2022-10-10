@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Asynchronous</title>
+</head>
+
+<body>
+    <h1 align="center">Asynchronous Blocking Example</h1>
+    <script>
+        function task(message) {
+            let n = 1000000;
+            while (n > 0) {
+                n--;
+            }
+            console.log(message);
+        }
+        console.log("Start");
+        task("Api Call");
+        console.log("End")
+    </script>
+</body>
+
+</html>

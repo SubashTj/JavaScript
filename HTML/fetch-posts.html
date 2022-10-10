@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>API's Call</title>
+</head>
+
+<body>
+    <h1>API Call</h1>
+    <button id="btn">Fetch Details</button>
+    <div id="target"></div>
+    <script>
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click', function () {
+            let API = "http://jsonplaceholder.typicode.com/posts";
+            fetch(API)
+                .then(res => res.json())
+                .then(data => {
+                    let element = "";
+                    data.forEach(val => {
+                        element += `<h2>${val.title}</h2><p>${val.body}</p><hr/>`
+                    });
+                    document.getElementById("target").innerHTML = element;
+                })
+                .catch(err => console.log(err));
+        })
+    </script>
+</body>
+
+</html>

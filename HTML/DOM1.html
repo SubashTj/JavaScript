@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Element</title>
+</head>
+
+<body>
+    <h1 align="center">Create DOM Element</h1>
+    <button class="btn-primary" onclick="xyz()">Submit</button>
+    <div id="target"></div>
+    <script>
+        function xyz() {
+            let data = [
+                { "id": "1", "title": "Heading 1", "body": "We are learning javascript and html and css" },
+                { "id": "2", "title": "Heading 2", "body": "We are learning javascript and html and css" },
+                { "id": "3", "title": "Heading 3", "body": "We are learning javascript and html and css" },
+                { "id": "4", "title": "Heading 4", "body": "We are learning javascript and html and css" },
+                { "id": "5", "title": "Heading 5", "body": "We are learning javascript and html and css" },
+            ]
+            let container = document.getElementById("target");
+            data.forEach((element) => {
+                let h3 = document.createElement("h3");
+                let p = document.createElement("p");
+                let hr = document.createElement("hr");
+                h3.textContent = element.title;
+                p.textContent = element.body;
+                container.appendChild(h3);
+                container.appendChild(p);
+                container.appendChild(hr);
+            })
+        }
+    </script>
+</body>
+
+</html>

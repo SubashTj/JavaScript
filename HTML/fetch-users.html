@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>API's Call</title>
+</head>
+
+<body>
+    <h1>API Call</h1>
+    <button id="btn">Fetch User</button>
+    <div id="target"></div>
+    <script>
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click', function () {
+            let API = "http://jsonplaceholder.typicode.com/users";
+            fetch(API)
+                .then(res => res.json())
+                .then(data => {
+                    let table = "";
+                    table += `<table width="90%" align="center" border="1px">
+                        <tr><th>S.No</th><th>Name</th><th>Email</th><th>Phone</th><th>Website</th></tr>`
+                    data.forEach((val, ind) => {
+                        table += `<tr><td>${ind}</td><td>${val.name}</td><td>${val.email}</td><td>${val.phone}</td><td>${val.website}</td></tr>`
+                    });
+                    table += `</table>`
+                    document.getElementById("target").innerHTML = table;
+                })
+                .catch(err => console.log(err));
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <head>
+        <title>Async-Await Example</title>
+    </head>
+</head>
+
+<body>
+    <h1 align="center">Async-Await Example</h1>
+    <script>
+        async function get() {
+            return "Hello"
+        }
+        async function display() {
+            try {
+                let result = await get()
+                console.log(result);
+            }
+            catch (e) {
+                console.log("Error :" + e);
+            }
+        }
+        display();
+    </script>
+</body>
+
+</html>

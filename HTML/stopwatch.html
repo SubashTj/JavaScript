@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stop Watch</title>
+</head>
+
+<body>
+    <h1>Stop Watch</h1>
+    <p id="target"></p>
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <br>
+    <br>
+    <h1 align="center">DIGITAL - CLOCK</h1>
+    <p id="target1" align="center"></p>
+    <script>
+        function clock() {
+            let time = new Date();
+            let tim = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
+            document.getElementById("target1").textContent = tim;
+        }
+        setInterval(clock,1000)
+        let count = 0;
+        function counter() {
+            count++;
+            document.getElementById("target").textContent = count;
+        }
+        function start() {
+            interval = setInterval(counter, 1000);
+        }
+        function stop() {
+            clearInterval(interval);
+            count = 0;
+        }
+    </script>
+</body>
+
+</html>

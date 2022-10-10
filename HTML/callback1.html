@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CallBack</title>
+</head>
+
+<body>
+    <h1 align="center">CallBack (nested | Async) Example</h1>
+    <script>
+        function getUser(userId, callback) {
+            console.log("Get User From The Database");
+            setTimeout(() => {
+                let userData = { userId: userId, username: "subash" };
+                callback(userData);
+            }, 2000)
+        }
+        function getServices(userId, callback) {
+            console.log("Get Service of the user from api's");
+            setTimeout(() => {
+                let services = [1, 2, 3, 4, 5];
+                callback(services);
+            }, 4000)
+        }
+        function getServiceCost(services, callback) {
+            console.log("Calculate Service Cost");
+            setTimeout(() => {
+                callback(services.length * 250);
+            }, 6000)
+        }
+        getUser(101, (user) => {
+            getServices(user, (services) => {
+                getServiceCost(services, (cost) => {
+                    console.log(`The Total service Cost Is ${cost}`)
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

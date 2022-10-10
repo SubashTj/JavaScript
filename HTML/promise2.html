@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Promise</title>
+</head>
+
+<body>
+    <h1 align="center">Promise Example</h1>
+    <script>
+        let success = false;
+        function getUsers() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (success) {
+                        resolve([{ username: 'jhon', email: 'jhon@gmail.com' }, { username: 'joe', email: 'joe@gmail.com' }])
+                    } else {
+                        reject("Failed to the user list");
+                    }
+                },2000)
+            })
+        }
+        const promise = getUsers();
+        promise.then((res) => console.log(res))
+            .catch((err) => console.log(err))
+    </script>
+</body>
+
+</html>

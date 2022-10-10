@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bg Change</title>
+</head>
+
+<body>
+    <h1>Bg Change</h1>
+    <script>
+        ind = 0;
+        function bgchange() {
+            array = ['pink', 'yellow', 'green', 'brown'];
+            document.bgColor = array[ind];
+            ind++;
+            if (ind == 4) {
+                ind = 0;
+            }
+        }
+        setInterval(bgchange, 2000);
+    </script>
+</body>
+
+</html>
